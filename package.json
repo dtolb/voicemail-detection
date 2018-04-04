@@ -1,0 +1,34 @@
+{
+  "name": "voicemail-detection",
+  "version": "0.0.1",
+  "description": "API to create and bridge calls with voicemail detection",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "joi": "^13.1.2",
+    "node-bandwidth": "^2.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtolb/voicemail-detection.git"
+  },
+  "keywords": [
+    "node",
+    "bandwidth",
+    "amd",
+    "voicemail",
+    "telco",
+    "cpaas"
+  ],
+  "author": "Dan Tolbert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dtolb/voicemail-detection/issues"
+  },
+  "homepage": "https://github.com/dtolb/voicemail-detection#readme"
+}
