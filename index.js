@@ -29,14 +29,14 @@ const bandwidthAPI = new Bandwidth(myCreds);
 *   "proxyNumber": "+12826643367"
 * }
 */
-app.post('/create-call', await (req, res) => {
+app.post('/create-call', async (req, res) => {
   const callbackUrl = `http://${req.hostname}/answer-event`;
   const from = req.body.proxyNumber ? req.body.proxyNumber : PROXY_NUMBER;
   const callTimeout = req.body.callTimeout ? req.body.callTimeout : DEFAULT_TIMEOUT
   const callPayload = {
     to                 : req.body.outboundNumber,
     callbackHttpMethod : 'GET',
-    callbackUrl        : callTimeout,
+    callbackUrl        : callbackUrl,
     from               : from,
     callTimeout        : callTimeout,
     tag                : req.body.transferTo,
@@ -53,8 +53,9 @@ app.post('/create-call', await (req, res) => {
 
 app.get('/answer-event', (req, res) => {
   const event = req.query;
+  console.log(`Got eventType: ${event.eventType}`);
   if (event.eventType !== 'answer'){
-    console.log('Call Timed out, no answer');
+    console.log('Not an answer event, keep on going');
     res.sendStatus(200);
     return;
   }
@@ -82,6 +83,7 @@ app.get('/gather-event', (req, res) => {
   bxml.transfer({
     transferTo: req.query.tag
   });
+  res.send(bxml.toString());
 });
 
 http.listen(app.get('port'), function(){
