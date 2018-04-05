@@ -21,6 +21,15 @@ const myCreds = {
 
 const bandwidthAPI = new Bandwidth(myCreds);
 
+app.get('/', (req, res) => {
+  const body = `<h2> Welcome to Bandwidth Voicemail Detection 👋 </h2>
+  Create a POST request to: <br> <h3><code>http://${req.hostname}/create-call</code></h3><br>
+
+  See the <a href="https://github.com/dtolb/voicemail-detection">GitHub Page</a> for instructions.
+  `
+  res.send(body);
+})
+
 /*
 * {
 *   "createCallTo" : "+18288364030",
