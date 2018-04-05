@@ -23,10 +23,10 @@ const bandwidthAPI = new Bandwidth(myCreds);
 
 /*
 * {
-*   "outboundNumber": "+18288364030",
-*   "callTimeout": 5,
-*   "transferTo": "+17379273364",
-*   "proxyNumber": "+12826643367"
+*   "createCallTo" : "+18288364030",
+*   "callTimeout"  : 5,
+*   "transferTo"   : "+17379273364",
+*   "proxyNumber"  : "+12826643367"
 * }
 */
 app.post('/create-call', async (req, res) => {
@@ -34,7 +34,7 @@ app.post('/create-call', async (req, res) => {
   const from = req.body.proxyNumber ? req.body.proxyNumber : PROXY_NUMBER;
   const callTimeout = req.body.callTimeout ? req.body.callTimeout : DEFAULT_TIMEOUT
   const callPayload = {
-    to                 : req.body.outboundNumber,
+    to                 : req.body.createCallTo,
     callbackHttpMethod : 'GET',
     callbackUrl        : callbackUrl,
     from               : from,
@@ -43,7 +43,7 @@ app.post('/create-call', async (req, res) => {
   };
   try {
     const call = await bandwidthAPI.Call.create(callPayload);
-    res.send(call);
+    res.status(201).send(call);
   }
   catch (e) {
     console.log(`Error when creating the call: ${e}`);

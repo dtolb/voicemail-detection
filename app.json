@@ -1,0 +1,25 @@
+{
+  "name": "Bandwidth Voicemail Detection API",
+  "description": "Bandwidth Voice & Messaging API Sample App for  Voicemail Detection ",
+  "repository": "https://github.com/dtolb/voicemail-detection.git",
+  "logo": "https://avatars2.githubusercontent.com/u/12057884?v=3&s=200",
+  "keywords": ["node", "bandwidth", "catapult", "masked-numbers", "numbers", "on-demand", "AMD",  "Voicemail Detection" ],
+  "env": {
+    "BANDWIDTH_USER_ID": {
+      "description": "Your Bandwidth API User Id, like u-kljgl934s",
+      "value": "u-kljgl934s"
+    },
+    "BANDWIDTH_API_TOKEN": {
+      "description": "Your Bandwidth API Token, like: t-kgkja23skd",
+      "value": "t-kgkja23skd"
+    },
+    "BANDWIDTH_API_SECRET": {
+      "description": "Your Bandwidth API Secret, like: ja35ijsadfoi",
+      "value": "ja35ijsadfoi"
+    },
+    "BANDWIDTH_PROXY_NUMBER": {
+      "description": "A phone number in your Bandwidth Account that will be used as the default caller id., like: +12828764235",
+      "value": "+12828764235"
+    }
+  }
+}
